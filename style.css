@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("images/cosmic-nebula-clouds.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.text-box {
+    background-color: rgba(240, 146, 201, 0.7);
+    padding: 20px;
+    max-width: 700px;
+    margin: 40px auto;
+    border-radius: 16px;
+    text-align: center;
+}
+.text-box h1,
+.text-box p{
+    color: #2b2b2b;
+}
+img{
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    background: #3b2f2f;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+    text-align: center;
+}
+
+.card-block {
+    background: rgba(240, 146, 201, 0.7);
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+}
+
+.main-card {
+    width: 160px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.extras {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.extra-card {
+    width:120px;
+    margin-right: 8px;
+}
+#spread {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px;
+}
+#cards img:hover{
+    transform: scale(1.08);
+}
