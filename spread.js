@@ -22,7 +22,9 @@ startBtn.addEventListener("click", () => {
     deck = shuffle([...cards]); // новая колода
 
     const mainCards = drawCards(3);
+    const bottomCards = drawCards(2); // <-- дно колоды
 
+    // === ОСНОВНЫЕ КАРТЫ ===
     mainCards.forEach(card => {
         const cardBlock = document.createElement("div");
         cardBlock.className = "card-block";
@@ -53,7 +55,7 @@ startBtn.addEventListener("click", () => {
                 extras.appendChild(extraImg);
             });
 
-            button.disabled = true; // чтобы не накликивали бесконечно
+            button.disabled = true;
         });
 
         cardBlock.appendChild(title);
@@ -63,4 +65,26 @@ startBtn.addEventListener("click", () => {
 
         spread.appendChild(cardBlock);
     });
+
+    // === ДНО КОЛОДЫ ===
+    const bottomBlock = document.createElement("div");
+    bottomBlock.className = "bottom-block";
+
+    const bottomTitle = document.createElement("h2");
+    bottomTitle.textContent = "Дно колоды";
+
+    const bottomCardsContainer = document.createElement("div");
+    bottomCardsContainer.className = "bottom-cards";
+
+    bottomCards.forEach(card => {
+        const img = document.createElement("img");
+        img.src = card.image;
+        img.className = "bottom-card";
+        bottomCardsContainer.appendChild(img);
+    });
+
+    bottomBlock.appendChild(bottomTitle);
+    bottomBlock.appendChild(bottomCardsContainer);
+
+    spread.appendChild(bottomBlock);
 });
