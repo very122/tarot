@@ -19,11 +19,12 @@ body{
 .text-box p{
     color: #2b2b2b;
 }
-img{
+.main-card,
+.extra-card {
     display: block;
-    margin: 0 auto;
     cursor: pointer;
 }
+
 
 button {
     padding: 8px 14px;

@@ -18,73 +18,69 @@ function drawCards(count) {
 // старт расклада
 startBtn.addEventListener("click", () => {
     spread.innerHTML = "";
-
-    deck = shuffle([...cards]); // новая колода
+    deck = shuffle([...cards]);
 
     const mainCards = drawCards(3);
-    const bottomCards = drawCards(2); // <-- дно колоды
 
-    // === ОСНОВНЫЕ КАРТЫ ===
     mainCards.forEach(card => {
-        const cardBlock = document.createElement("div");
-        cardBlock.className = "card-block";
-
-        const title = document.createElement("h3");
-        title.textContent = card.name;
-
-        const img = document.createElement("img");
-        img.src = card.image;
-        img.className = "main-card";
-
-        const button = document.createElement("button");
-        button.textContent = "Добавить допы";
-
-        const extras = document.createElement("div");
-        extras.className = "extras";
-
-        button.addEventListener("click", () => {
-            if (deck.length < 3) return;
-
-            const extraCards = drawCards(3);
-            extras.innerHTML = "";
-
-            extraCards.forEach(extra => {
-                const extraImg = document.createElement("img");
-                extraImg.src = extra.image;
-                extraImg.className = "extra-card";
-                extras.appendChild(extraImg);
-            });
-
-            button.disabled = true;
-        });
-
-        cardBlock.appendChild(title);
-        cardBlock.appendChild(img);
-        cardBlock.appendChild(button);
-        cardBlock.appendChild(extras);
-
-        spread.appendChild(cardBlock);
+        createCardBlock(card);
     });
 
-    // === ДНО КОЛОДЫ ===
-    const bottomBlock = document.createElement("div");
-    bottomBlock.className = "bottom-block";
+    // ---- ДНО КОЛОДЫ ----
+    if (deck.length > 0) {
+        const bottomCard = drawCards(1)[0];
 
-    const bottomTitle = document.createElement("h2");
-    bottomTitle.textContent = "Дно колоды";
+        const bottomTitle = document.createElement("h2");
+        bottomTitle.textContent = "Дно колоды";
+        spread.appendChild(bottomTitle);
 
-    const bottomCardsContainer = document.createElement("div");
-    bottomCardsContainer.className = "bottom-cards";
-
-    bottomCards.forEach(card => {
-        const img = document.createElement("img");
-        img.src = card.image;
-        img.className = "bottom-card";
-        bottomCardsContainer.appendChild(img);
-    });
-
-    bottomBlock.appendChild(bottomTitle);
-    bottomBlock.appendChild(bottomCardsContainer);
-
-    spread.appendChild(bottomBlock);
+        createCardBlock(bottomCard);
+    }
 });
+
+function createCardBlock(card) {
+    const cardBlock = document.createElement("div");
+    cardBlock.className = "card-block";
+
+    const title = document.createElement("h3");
+    title.textContent = card.name;
+
+    const img = document.createElement("img");
+    img.src = card.image;
+    img.className = "main-card";
+
+    const button = document.createElement("button");
+    button.textContent = "Добавить доп";
+
+    const extras = document.createElement("div");
+    extras.className = "extras";
+
+    let extraCount = 0;
+
+    button.addEventListener("click", () => {
+        if (deck.length === 0) return;
+        if (extraCount >= 3) return;
+
+        const extraCard = drawCards(1)[0];
+
+        const extraImg = document.createElement("img");
+        extraImg.src = extraCard.image;
+        extraImg.className = "extra-card";
+
+        extras.appendChild(extraImg);
+
+        extraCount++;
+
+        if (extraCount === 3) {
+            button.disabled = true;
+        }
+    });
+
+    cardBlock.appendChild(title);
+    cardBlock.appendChild(img);
+    cardBlock.appendChild(button);
+    cardBlock.appendChild(extras);
+
+    spread.appendChild(cardBlock);
+}
+
