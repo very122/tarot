@@ -6,14 +6,27 @@
     </head>
     <body>
         <div class="text-box">
-            <h1>онлайн расклад</h1>
+            <h1>Онлайн расклад</h1>
             <a href="index.html">
-                <button>на главную</button>
+                <button>На главную</button>
             </a>
-            <button id="start">сделать раскладик</button>
-            <div id="spread"></div>
-            <script src="data.js"></script>
-            <script src="spread.js"></script>
+            <button id="start">Сделать раскладик</button>
+            <button id="show-bottom" disabled>Показать дно</button>
+
+            <!-- РАСКЛАД -->
+            <div id="main-section">
+                <h2>Расклад</h2>
+                <div id="main-cards" class="cards-container"></div>
+            </div>
+
+            <!-- ДНО -->
+            <div id="bottom-section">
+                <h2>Дно колоды</h2>
+                <div id="bottom-cards" class="cards-container"></div>
+            </div>
         </div>
+
+        <script src="data.js"></script>
+        <script src="spread.js"></script>
     </body>
 </html>

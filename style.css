@@ -25,6 +25,41 @@ body{
     cursor: pointer;
 }
 
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* чтобы карты не уходили за экран */
+    margin-top: 10px;
+}
+
+#main-section, #bottom-section {
+    margin-top: 30px;
+}
+
+.card-block {
+    background: rgba(240, 146, 201, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.main-card {
+    width: 160px;
+    display: block;
+    margin: 0 auto 12px auto;
+}
+
+.extra-card {
+    width: 120px;
+    margin: 0 4px;
+}
+
+.extras {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
 
 button {
     padding: 8px 14px;
@@ -32,53 +67,6 @@ button {
     background: #3b2f2f;
     color: #fff;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
-button:disabled {
-    opacity: 0.5;
-    cursor: default;
-    text-align: center;
-}
-
-.card-block {
-    background: rgba(240, 146, 201, 0.7);
-    padding: 20px;
-    margin-bottom: 24px;
-    border-radius: 12px;
-}
-
-.main-card {
-    width: 160px;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.extras {
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.extra-card {
-    width:120px;
-    margin-right: 8px;
-}
-#spread {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-#cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-    padding: 40px;
-}
-#cards img:hover{
-    transform: scale(1.08);
-}
